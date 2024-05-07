@@ -42,6 +42,11 @@ public class VehiclesPage extends LoginPage{
         //
     }
 
+    @FindBy(xpath="//div[@class='btn-group dropdown']//input[@type='checkbox']")
+    public WebElement Vehicle_DropdownChkBox;
+
+
+
 
 
 }
