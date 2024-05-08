@@ -14,31 +14,32 @@ Feature: Users should be able to login
       | System     |
 
 
+  @wip
   Scenario: Verify login with different user types
     Given the user logged in with username as "salesmanager101" and password as "UserUser123"
     And click to login button
     Then user sees below module
+      | Dashboards        |
       | Fleet             |
       | Customers         |
-      | Activities        |
-      | System            |
-      | Dashboards        |
       | Sales             |
+      | Activities        |
       | Marketing         |
-      | Report & Segments |
+      | Reports & Segments |
+      | System            |
 
   Scenario: Verify login with different user types
     Given the user logged in with username as "storemanager85" and password as "UserUser123"
     And click to login button
     Then user sees below module
+      | Dashboards        |
       | Fleet             |
       | Customers         |
-      | Activities        |
-      | System            |
-      | Dashboards        |
       | Sales             |
+      | Activities        |
       | Marketing         |
       | Report & Segments |
+      | System            |
 
 
 
