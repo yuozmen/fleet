@@ -1,7 +1,9 @@
 package com.trycloud.step_definitions;
 
 import com.trycloud.pages.LoginPage;
+import com.trycloud.utilities.BrowserUtils;
 import com.trycloud.utilities.ConfigurationReader;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 public class LoginStepDefs {
 
@@ -38,7 +40,10 @@ public class LoginStepDefs {
     }
 
 
+    @And("wait until the user sees page title is {string}")
+    public void waitUntilTheUserSeesPageTitleIs(String expectedTitle) {
 
+        BrowserUtils.waitForTitleContains(expectedTitle);
 
-
+    }
 }

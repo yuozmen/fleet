@@ -14,6 +14,7 @@ import java.util.List;
 public class US01Stepdefs {
 
 
+
     @Then("user sees below module")
     public void userSeesBelowModule(List<String> expectedOptions) {
 
@@ -54,9 +55,10 @@ public class US01Stepdefs {
             }
         }
 
+
         BrowserUtils.waitFor(3);
 
-        Assert.assertEquals(actualOptions, expectedOptions);
+        Assert.assertEquals(actualOptions,expectedOptions);
 
 
         //System.out.println("actualOptions = " + actualOptions);
