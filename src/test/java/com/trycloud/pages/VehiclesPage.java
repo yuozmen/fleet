@@ -3,6 +3,7 @@ package com.trycloud.pages;
 import com.trycloud.utilities.BrowserUtils;
 import com.trycloud.utilities.Driver;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -21,7 +22,7 @@ public class VehiclesPage extends LoginPage{
     @FindBy(xpath = "//span[.='Vehicles']")
     public WebElement VehiclesButton;
 
-    @FindBy(xpath = "//ul[@class='nav nav-pills icons-holder launchers-list']")
+    @FindBy(xpath = "(//ul[@class='nav nav-pills icons-holder launchers-list'])[1]/li")
     public List<WebElement> InfoCarsIcons;
 
     public void vehicleLogin(){
@@ -30,16 +31,15 @@ public class VehiclesPage extends LoginPage{
         VehiclesButton.click();
     }
 
-    public static List<String> infoCarIconsText (List<WebElement> list){
+    public static  List<String> Icons(List<WebElement> list) {
+        List<String> IconsTitle = new ArrayList<>();
 
-        List<String> InfoCarText =new ArrayList<>();
+        for (WebElement each : list){
+            WebElement link= each.findElement(By.tagName("a"));
+            IconsTitle.add(link.getAttribute("title"));
 
-        for (WebElement each : list) {
-            InfoCarText.add(each.getText());
         }
-        return  InfoCarText;
-
-        //
+        return IconsTitle;
     }
 
 
