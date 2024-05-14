@@ -13,7 +13,7 @@ public class LoginPage {
     }
 
     @FindBy(id="prependedInput")
-    public WebElement username;
+    public WebElement userName;
 
 
 
@@ -25,7 +25,7 @@ public class LoginPage {
 
 
     public void login(String userNameStr, String passwordStr) {
-        username.sendKeys(userNameStr);
+        userName.sendKeys(userNameStr);
         password.sendKeys(passwordStr);
         submit.click();
         // verification that we logged
