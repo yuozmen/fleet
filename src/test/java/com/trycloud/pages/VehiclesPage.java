@@ -46,11 +46,22 @@ public class VehiclesPage extends LoginPage{
     @FindBy(xpath = "//ul[@class='nav-multilevel main-menu']")
     public List<WebElement> allModules;
 
+
+    @FindBy(xpath = "(//a[@class='dropdown-toggle'])[4]")
+    public List<WebElement> editOptions;
+
+
     @FindBy(xpath = "//input[@type='number']")
     public WebElement defaultPage;
 
     @FindBy(xpath = "//button[@class='btn dropdown-toggle ']")
     public WebElement defaultLastPage;
+
+    @FindBy(xpath = "//ul[@class='nav nav-pills icons-holder launchers-list']")
+    public WebElement alleditSybol;
+
+
+
 
 
     public void vehicleLogin(){
