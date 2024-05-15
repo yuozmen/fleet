@@ -23,21 +23,21 @@ public class VehiclesPage extends LoginPage{
     public WebElement VehiclesButton;
 
     @FindBy(xpath = "(//ul[@class='nav nav-pills icons-holder launchers-list'])[1]/li")
-    public List<WebElement> InfoCarsIcons;
+    public List<WebElement> InfoCarsIcon;
 
     public void vehicleLogin(){
         FleetButton.click();
         BrowserUtils.sleep(2);
         VehiclesButton.click();
     }
-
+    @FindBy(xpath = "(//a[@class='dropdown-toggle'])[4]")
+    public WebElement ThreeDotIcons;
     public static  List<String> Icons(List<WebElement> list) {
         List<String> IconsTitle = new ArrayList<>();
 
         for (WebElement each : list){
             WebElement link= each.findElement(By.tagName("a"));
             IconsTitle.add(link.getAttribute("title"));
-
         }
         return IconsTitle;
     }
