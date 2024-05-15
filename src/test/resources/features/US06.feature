@@ -1,7 +1,37 @@
-Feature: As a user, I want to see edit car info icons on the Vehicles page.
 
-Scenario: US07-Verify that Sales manager able to see all checkboxes as checked once clicks on header row checkbox
-Given the user logged in as "sales manager"
-And User able to hover on Fleet Tab and User able to click Vehicle Module
-And Verify the User on the Vehicle page
-Then User clicks on headerRow checkbox and see all the checkboxes are checked
+@B33G1-157
+Feature: Default
+
+	
+	@B33G1-156
+	Scenario: Verify that the Driver can see the edit car icons on the Vehicles page.
+		Given the user logged in as "driver"
+		    Then the user clicks  on the Fleet button then selects the Vehicles button
+		    When  the user  hovers the mouse over the three dots icon
+		    Then the user sees below options
+		      | view   |
+		      | edit   |
+		      | delete |	
+
+	
+	@B33G1-180
+	Scenario: Verify that the Sales Manager can see the edit car icons on the Vehicles page.
+		Given the user logged in as "sales manager"
+		    Then the user clicks  on the Fleet button then selects the Vehicles button
+		    When  the user  hovers the mouse over the three dots icon
+		    Then the user sees below options
+		      | view   |
+		      | edit   |
+		      | delete |	
+
+	
+	@B33G1-181
+	Scenario: Verify that the Store Manager can see the edit car icons on the Vehicles page.
+		Given the user logged in as "store manager"
+		    Then the user clicks  on the Fleet button then selects the Vehicles button
+		    When  the user  hovers the mouse over the three dots icon
+		    Then the user sees below options
+		      | view   |
+		      | edit   |
+		      | delete |
+
