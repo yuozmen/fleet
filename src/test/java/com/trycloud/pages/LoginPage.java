@@ -27,9 +27,6 @@ public class LoginPage {
 
     public void login(String userNameStr, String passwordStr) {
        // BrowserUtils.sleep(5);
-        System.out.println("userNameStr -->"+userNameStr);
-        System.out.println("passwordStr -->"+passwordStr);
-
         userName.sendKeys(userNameStr);
         password.sendKeys(passwordStr);
         submit.click();
