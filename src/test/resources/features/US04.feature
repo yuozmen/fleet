@@ -5,20 +5,21 @@ Feature:Vehicle Contracts page functionalty
 
 
 
- Scenario: Verify that Store managers and Sales managers can access the Vehicle Contracts
+ Scenario Outline: Verify that Store managers and Sales managers can access the Vehicle Contracts
 
-  Given the user logged in as "store manager"
+  Given the user logged in as "<userType>"
   And User able to hover on Fleet Tab and User able to click Vehicle Module
  Then User sees expectedUrl  on page
  Then user sees expectedTitle is on page
 
+  Examples:
 
- Scenario: Verify that Store managers and Sales managers can access the Vehicle Contracts
+  |userType|
+  |sales manager|
+  |store manager|
 
-  Given the user logged in as "sales manager"
-  And User able to hover on Fleet Tab and User able to click Vehicle Module
-  Then User sees expectedUrl  on page
-  Then user sees expectedTitle is on page
+
+
 
 @Driver
 Scenario: Login as Driver

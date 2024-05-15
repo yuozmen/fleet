@@ -31,7 +31,7 @@ public class VehiclesPage extends LoginPage{
     @FindBy(xpath = "//span[.='Vehicles']")
     public WebElement VehiclesButton;
 
-    @FindBy(xpath = "//div[.='You do not have permission to perform this action.']")
+    @FindBy(xpath = "//p[@class='error-page-description']")
     public WebElement VehiclesOdometerErrorText;
 
     @FindBy(xpath = "//span[.='Vehicle Contracts']")
