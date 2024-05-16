@@ -1,5 +1,8 @@
 package com.trycloud.pages;
 
+
+
+
 import com.trycloud.utilities.BrowserUtils;
 import com.trycloud.utilities.Driver;
 import org.openqa.selenium.By;
@@ -78,6 +81,7 @@ public abstract class BasePage {
      */
     public void navigateToModule(String tab, String module) {
         String tabLocator = "//span[normalize-space()='" + tab + "' and contains(@class, 'title title-level-1')]";
+        System.out.println("tabLocator = " + tabLocator);
         String moduleLocator = "//span[normalize-space()='" + module + "' and contains(@class, 'title title-level-2')]";
         try {
             BrowserUtils.waitForClickablility(By.xpath(tabLocator), 5);

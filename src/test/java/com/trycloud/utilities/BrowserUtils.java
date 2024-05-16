@@ -51,6 +51,7 @@ public class BrowserUtils {
     }
 
     public static void verifyTitle(String expectedTitle){
+        System.out.println("Driver.getDriver().getTitle() = " + Driver.getDriver().getTitle());
         Assert.assertEquals(Driver.getDriver().getTitle(), expectedTitle);
     }
     public static void verifyTitleContains( String expectedInTitle){
@@ -75,7 +76,7 @@ public class BrowserUtils {
      */
     public static void waitForTitleContains(String title){
         //Create the object of 'WebDriverWait' class, and set up the constructor args
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(20));
 
         //use the 'wait' object with the proper syntax to create explicit wait conditions.
         wait.until(ExpectedConditions.titleContains(title));
