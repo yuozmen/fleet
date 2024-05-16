@@ -4,7 +4,7 @@ import com.trycloud.utilities.BrowserUtils;
 import com.trycloud.utilities.Driver;
 
 
-import io.cucumber.java.bs.A;
+
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -28,19 +28,19 @@ public class VehiclesPage extends LoginPage{
 
 
     // US07- Verify Check box functionality --start
-   @FindBy(xpath="//table[@class='grid table-hover table table-bordered table-condensed']//tr[@class='grid-header-row']//input[@type='checkbox']")
-   public WebElement chkBox_Elem;
+    @FindBy(xpath="//table[@class='grid table-hover table table-bordered table-condensed']//tr[@class='grid-header-row']//input[@type='checkbox']")
+    public WebElement chkBox_Elem;
 
     @FindBy(xpath="//table[@class='grid table-hover table table-bordered table-condensed']//tbody//tr//input[@type='checkbox']")
     public List<WebElement> chkBox_TotalCars;
 
-   public void unCheckedRows(){
-       List<WebElement> rows_Elem=chkBox_TotalCars;
-       for(WebElement eachRow:rows_Elem){
-           Assert.assertTrue(!eachRow.isSelected());
-       }
+    public void unCheckedRows(){
+        List<WebElement> rows_Elem=chkBox_TotalCars;
+        for(WebElement eachRow:rows_Elem){
+            Assert.assertTrue(!eachRow.isSelected());
+        }
 
-   }
+    }
 
 
     public void checkedRows(){
@@ -87,16 +87,55 @@ public class VehiclesPage extends LoginPage{
         //
     }
 
+    @FindBy(xpath = "(//span[@class='title title-level-1'])[2]")
+    public WebElement FleetButton;
+
+    @FindBy(xpath = "(//span[@class='title title-level-1'])[1]")
+    public WebElement driverFleetButton;
+
+
+
+    @FindBy(xpath = "//span[.='Vehicles']")
+    public WebElement VehiclesButton;
+
+    @FindBy(xpath = "//p[@class='error-page-description']")
+    public WebElement VehiclesOdometerErrorText;
+
+    @FindBy(xpath = "//span[.='Vehicle Contracts']")
+    public WebElement VehiclesContractButton;
+
+    @FindBy(xpath = "//span[.='Vehicle Odometer']")
+    public WebElement VehiclesOdometerButton;
+
+    @FindBy(xpath = "//div[.='You do not have permission to perform this action.']")
+    public WebElement errorMessage;
+
+
+
+
+
+
+    @FindBy(xpath = "//ul[@class='nav-multilevel main-menu']")
+    public List<WebElement> allModules;
+
+
+    @FindBy(xpath = "(//a[@class='dropdown-toggle'])[4]")
+    public List<WebElement> editOptions;
+
+
+    @FindBy(xpath = "//input[@type='number']")
+    public WebElement defaultPage;
+
+    @FindBy(xpath = "//button[@class='btn dropdown-toggle ']")
+    public WebElement defaultLastPage;
+
+    @FindBy(xpath = "//ul[@class='nav nav-pills icons-holder launchers-list']")
+    public WebElement alleditSybol;
+
 
 
     @FindBy(xpath="//div[@class='btn-group dropdown']//input[@type='checkbox']")
     public WebElement Vehicle_DropdownChkBox;
-
-    @FindBy(xpath = "(//li[@class='dropdown dropdown-level-1'])[1]")
-    public WebElement FleetButton;
-
-    @FindBy(xpath = "//span[.='Vehicles']")
-    public WebElement VehiclesButton;
 
     @FindBy(xpath = "(//ul[@class='nav nav-pills icons-holder launchers-list'])[1]/li")
     public List<WebElement> InfoCarsIcon;
