@@ -40,10 +40,4 @@ public class LoginStepDefs {
     }
 
 
-    @And("wait until the user sees page title is {string}")
-    public void waitUntilTheUserSeesPageTitleIs(String expectedTitle) {
-
-        BrowserUtils.waitForTitleContains(expectedTitle);
-
-    }
 }
