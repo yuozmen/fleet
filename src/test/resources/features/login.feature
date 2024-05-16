@@ -6,16 +6,9 @@ Feature: Users should be able to login
 
 
   Scenario: Verify login with different user types
-    Given the user logged in as "driver"
-
-@wip
-  Scenario: Verify login with different user types
-    Given the user logged in as "sales manager"
+    Given the user logged in as "<userType>"
 
 
-
-  Scenario: Verify login with different user types
-    Given the user logged in as "store manager"
 
 
 
