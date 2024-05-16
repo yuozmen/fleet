@@ -2,10 +2,9 @@ package com.trycloud.step_definitions;
 
 import com.trycloud.pages.BasePage;
 import com.trycloud.pages.VehiclesPage;
-import com.trycloud.utilities.BrowserUtils;
 import com.trycloud.utilities.Driver;
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
+
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
 
@@ -39,6 +38,8 @@ public class US04_Step_Definitions extends BasePage {
         String expedtedTitle = "All - Vehicle Contract - Entities - System - Car - Entities - System";
       String actualTitle = Driver.getDriver().getTitle();
 
+      Assert.assertEquals(actualTitle,expedtedTitle);
+
     }
 
 
@@ -60,8 +61,10 @@ public class US04_Step_Definitions extends BasePage {
 
 
         String expectedErrorMessage = "You do not have permission to perform this action.";
+         String actualErrorMessage = vehiclesPage.errorMessage.getText();
 
-        Assert.assertTrue(vehiclesPage.errorMessage.getText().contains(expectedErrorMessage));
+        Assert.assertEquals(actualErrorMessage, expectedErrorMessage);
+
 
 
 
