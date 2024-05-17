@@ -23,6 +23,7 @@ public class US02_Step_Definitions extends  BasePage{
     @Then("user click on the question_mark icon")
     public void user_click_on_the_question_mark_icon() {
         basePage.waitUntilLoaderScreenDisappear();
+        basePage.waitUntilLoaderScreenDisappear();
         dashboardPage.question_mark.click();
 
     }
