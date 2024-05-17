@@ -23,8 +23,6 @@ public class  LoginPage {
     @FindBy(id = "_submit")
     public WebElement submit;
 
-    @FindBy(xpath = "//div[.='You do not have permission to perform this action.']")
-    public WebElement errorMessage;
 
 
 
