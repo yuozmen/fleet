@@ -3,13 +3,16 @@ package com.trycloud.step_definitions;
 import com.trycloud.pages.LoginPage;
 import com.trycloud.utilities.BrowserUtils;
 import com.trycloud.utilities.ConfigurationReader;
+
 import io.cucumber.java.en.And;
+
 import io.cucumber.java.en.Given;
 public class LoginStepDefs {
     LoginPage loginPage=new LoginPage();
 
     @Given("the user is on the login page")
     public void the_user_is_on_the_login_page() {
+        // Driver.getDriver().get("https://qa3.vytrack.com/user/login");
         System.out.println("Login to app in Before method");
     }
 
