@@ -1,21 +1,22 @@
 package com.trycloud.step_definitions;
 
 import com.trycloud.pages.BasePage;
-import com.trycloud.pages.CalendarRepeatPage;
+import com.trycloud.pages.US09_CalendarRepeatPage;
+import com.trycloud.utilities.BrowserUtils;
 import com.trycloud.utilities.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
-import static org.junit.Assert.assertEquals;
 
 public class US09_StepDefinitions extends BasePage {
 
-    CalendarRepeatPage calendarRepeatPage = new CalendarRepeatPage();
+    US09_CalendarRepeatPage calendarRepeatPage = new US09_CalendarRepeatPage();
 
 
     @When("User howers the mouse over the Activities button")
@@ -32,13 +33,14 @@ public class US09_StepDefinitions extends BasePage {
     @When("User clicks on the Create Calander Event button")
     public void user_clicks_on_the_create_calander_event_button() {
 
+
         JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
         js.executeScript("arguments[0].click();",calendarRepeatPage.CalendarEventButton);
 
         Actions actions = new Actions(Driver.getDriver());
         actions.moveToElement(calendarRepeatPage.CalendarEventButton).click().perform();
 
-        //calendarRepeatPage.calendarEventButton.click();
+        //calendarRepeatPage.CalendarEventButton.click();
 
     }
     @When("User selects the Repeat field")
@@ -46,9 +48,6 @@ public class US09_StepDefinitions extends BasePage {
 
         JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
         js.executeScript("arguments[0].click();",calendarRepeatPage.RepeatBox);
-
-        Actions actions = new Actions(Driver.getDriver());
-        actions.moveToElement(calendarRepeatPage.RepeatBox).click().perform();
 
         //calendarRepeatPage.RepeatBox.click();
 
@@ -60,33 +59,34 @@ public class US09_StepDefinitions extends BasePage {
         Actions actions = new Actions(Driver.getDriver());
         actions.moveToElement((WebElement) calendarRepeatPage.RepeatEvery).click().perform();
 
-        calendarRepeatPage.RepeatEvery.clear();
+        //calendarRepeatPage.RepeatEvery.clear();
+
+        calendarRepeatPage.RepeatEvery.sendKeys(Keys.BACK_SPACE);
 
     }
 
 
-/*
     @When("User enters {string} into the Repeat Every input box")
-    public void userEntersIntoTheRepeatEveryInputBox(int input) {
+    public void userEntersIntoTheRepeatEveryInputBox(String input) {
 
-        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
-        js.executeScript("arguments[0].click();",calendarRepeatPage.RepeatEvery);
+        calendarRepeatPage.RepeatEvery.sendKeys(input);
 
-        String invalidInput = String.valueOf(input);
-        calendarRepeatPage.RepeatEvery.sendKeys(invalidInput);
+        calendarRepeatPage.RepeatEvery.sendKeys(Keys.ENTER);
 
     }
 
     @Then("User should see an error message {string}")
-    public void userShouldSeeAnErrorMessage(String expectedErrorMessage) {
+    public void userShouldSeeAnErrorMessage(String expectedMessage) {
+
+        BrowserUtils.sleep(2);
 
         JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
-        js.executeScript("arguments[0].click();",calendarRepeatPage.ErrorMessage);
-        String actualErrorMessage = calendarRepeatPage.ErrorMessage.getText();
-        Assert.assertEquals(expectedErrorMessage, actualErrorMessage);
+        js.executeScript("arguments[0].click();", calendarRepeatPage.ErrorMessage);
+
+        String actualMessage = calendarRepeatPage.ErrorMessage.getText();
+        Assert.assertEquals(expectedMessage, actualMessage);
 
     }
 
- */
 
 }
