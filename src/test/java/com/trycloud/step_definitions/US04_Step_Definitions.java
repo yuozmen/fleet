@@ -1,37 +1,80 @@
 package com.trycloud.step_definitions;
 
-import io.cucumber.java.en.Given;
+import com.trycloud.pages.BasePage;
+import com.trycloud.pages.VehiclesPage;
+import com.trycloud.utilities.Driver;
+import io.cucumber.java.en.And;
+
 import io.cucumber.java.en.Then;
+import org.junit.Assert;
 
-public class US04_Step_Definitions {
+public class US04_Step_Definitions extends BasePage {
+
+    VehiclesPage vehiclesPage = new VehiclesPage();
 
 
-    @Given("user is on the login page")
-    public void user_is_on_the_login_page() {
 
-    }
-    @Given("user input credentials username and password")
-    public void user_input_credentials_username_and_password() {
+    @And("User able to hover on Fleet Tab and User able to click Vehicle Module")
+    public void userAbleToHoverOnFleetTabAndUserAbleToClickVehicleModule() {
 
-    }
-    @Then("click to login button")
-    public void click_to_login_button() {
-
-    }
-    @Then("User will able to  hold  on the Fleet button than select Vehicle Contracts button")
-    public void user_will_able_to_hold_on_the_fleet_button_than_select_vehicle_contracts_button() {
+     navigateToModule("Fleet","Vehicle Contracts");
+     waitUntilLoaderScreenDisappear();
 
     }
+    @Then("User sees expectedUrl  on page")
+    public void userSeesExpectedUrlOnPage() {
 
-    @Then("User should see Url  is as expected")
-    public void user_should_see_url_is_as_expected() {
+        String actualUrl = Driver.getDriver().getCurrentUrl();
+        String expectedUrl ="All - Vehicle Contract - Entities - System - Car - Entities - System";
+
+
+
+        waitUntilLoaderScreenDisappear();
 
     }
 
-    @Then("User should see title is as expected")
-    public void user_should_see_title_is_as_expected() {
+    @Then("user sees expectedTitle is on page")
+    public void userSeesExpectedTitleIsOnPage() {
+        String expedtedTitle = "All - Vehicle Contract - Entities - System - Car - Entities - System";
+      String actualTitle = Driver.getDriver().getTitle();
+
+      Assert.assertEquals(actualTitle,expedtedTitle);
 
     }
+
+
+    @Then("Driver  will able to  hold  on the Fleet button than select Vehicle Contracts button")
+    public void driverWillAbleToHoldOnTheFleetButtonThanSelectVehicleContractsButton() {
+
+        vehiclesPage.driverFleetButton.click();
+        vehiclesPage.VehiclesContractButton.click();
+        waitUntilLoaderScreenDisappear();
+
+
+
+
+
+    }
+
+    @Then("Driver user will not able to see Vehicle contracts page and user will see a warning message")
+    public void driverUserWillNotAbleToSeeVehicleContractsPageAndUserWillSeeAWarningMessage() {
+
+
+        String expectedErrorMessage = "You do not have permission to perform this action.";
+         String actualErrorMessage = vehiclesPage.errorMessage.getText();
+
+        Assert.assertEquals(actualErrorMessage, expectedErrorMessage);
+
+
+
+
+
+
+    }
+
+
+
+
 
 
 

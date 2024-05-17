@@ -1,6 +1,7 @@
 package com.trycloud.pages;
 
 
+import com.trycloud.utilities.BrowserUtils;
 import com.trycloud.utilities.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -15,6 +16,7 @@ public class LoginPage {
     @FindBy(id="prependedInput")
     public WebElement userName;
 
+
     @FindBy(id="prependedInput2")
     public WebElement password;
 
@@ -23,6 +25,7 @@ public class LoginPage {
 
 
     public void login(String userNameStr, String passwordStr) {
+       // BrowserUtils.sleep(5);
         userName.sendKeys(userNameStr);
         password.sendKeys(passwordStr);
         submit.click();
